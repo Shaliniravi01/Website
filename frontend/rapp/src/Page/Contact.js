@@ -5,7 +5,7 @@ const Contact = () => {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
 
-    const API_URL = 'http://localhost:5000/api/contact';
+    const API_URL = 'https://portfolio-website-u430.onrender.com';
 
     const addDetails = async (event) => {
         event.preventDefault();
