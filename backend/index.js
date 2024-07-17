@@ -3,14 +3,17 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000; // Use port 3000 if process.env.PORT is not defined
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'https://marvelous-choux-b4f5c4.netlify.app' // Allow requests from your frontend URL
+}));
 app.use(express.json());
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://Shaliniravi:Shalinirv04@cluster0.lswplxu.mongodb.net/Contactdetails?retryWrites=true&w=majority&appName=Cluster0', {
+const mongoURI = process.env.MONGO_URI || 'mongodb+srv://Shaliniravi:Shalinirv04@cluster0.lswplxu.mongodb.net/Contactdetails?retryWrites=true&w=majority&appName=Cluster0';
+mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -40,5 +43,5 @@ app.post('/api/contact', async (req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-  console.log('Server is running on http://localhost:${PORT}');
+  console.log(`Server is running on port ${PORT}`);
 });
