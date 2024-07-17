@@ -5,34 +5,27 @@ const Contact = () => {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
 
-    const API_URL = 'http://localhost:5000/api/contact'; 
+    const API_URL = 'http://localhost:5000/api/contact';
 
     const addDetails = async (event) => {
         event.preventDefault();
 
-        const data = {
-            name,
-            email,
-            message
-        };
+        const data = { name, email, message };
 
         try {
             const response = await fetch(API_URL, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
             });
 
             if (!response.ok) {
-                throw new Error('Network response was not ok.');
+                throw new Error(`Network response was not ok. Status: ${response.status}`);
             }
 
             const responseData = await response.json();
             console.log('SUCCESS!', responseData);
-            alert('Message sent successfully!');
-            // Reset form fields
+            alert(responseData.message);
             setName('');
             setEmail('');
             setMessage('');
@@ -112,11 +105,10 @@ const Contact = () => {
                         cursor: 'pointer',
                     }}
                 >
-                    Send
-                </button>
+                    Send                </button>
             </form>
         </div>
     );
-}
+};
 
 export default Contact;
