@@ -67,14 +67,13 @@ function App() {
       </div>
 
       
-      <h1 style={{color:'gray',marginBottom:'-50px',marginLeft:'455px'}}>l</h1>
       <div >
         <a href="https://github.com/Shaliniravi01" target="_blank" rel="noopener noreferrer" className="git-hub" style={{
           color: '495E57',
           fontSize: '35px',
           transition: 'color 0.3s ease',
           position:'absolute',
-          marginLeft:'400px'
+          marginLeft:'460px'
       
         }}>
           
@@ -84,7 +83,7 @@ function App() {
           color: '495E57',
           fontSize: '35px',
           transition: 'color 0.3s ease',
-          marginLeft:'490px',
+          marginLeft:'540px',
           position:'absolute',
         
         }}>
