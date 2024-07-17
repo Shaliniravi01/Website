@@ -13,14 +13,15 @@ const Contact = () => {
         const data = { name, email, message };
 
         try {
-            const response = await fetch(API_URL, {
+            const response = await fetch(`${API_URL}/contact`, { // Add /contact if this is the correct endpoint
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
             });
 
             if (!response.ok) {
-                throw new Error(`Network response was not ok. Status: ${response.status}`);
+                const errorData = await response.json();
+                throw new Error(`Network response was not ok. Status: ${response.status}, Message: ${errorData.message}`);
             }
 
             const responseData = await response.json();
@@ -103,9 +104,11 @@ const Contact = () => {
                         marginTop: '20px',
                         color: 'white',
                         cursor: 'pointer',
+                        marginBottom:'50px'
                     }}
                 >
-                    Send                </button>
+                    Send
+                </button>
             </form>
         </div>
     );
