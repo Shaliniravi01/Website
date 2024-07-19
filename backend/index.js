@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000; // Use port 3000 if process.env.PORT is n
 
 // Middleware
 app.use(cors({
-  origin: 'https://marvelous-choux-b4f5c4.netlify.app' // Allow requests from your frontend URL
+  origin: 'https://shalini-ravi.netlify.app' // Allow requests from your frontend URL
 }));
 app.use(express.json());
 
@@ -30,7 +30,7 @@ const contactSchema = new mongoose.Schema({
 const Contact = mongoose.model('Contact', contactSchema);
 
 // Routes
-app.post('/contact', async (req, res) => {
+app.post('/api/contact', async (req, res) => {
   try {
     const contact = new Contact(req.body);
     await contact.save();
