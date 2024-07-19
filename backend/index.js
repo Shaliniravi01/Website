@@ -30,7 +30,7 @@ const contactSchema = new mongoose.Schema({
 const Contact = mongoose.model('Contact', contactSchema);
 
 // Routes
-app.post('/api/contact', async (req, res) => {
+app.post('/contact', async (req, res) => {
   try {
     const contact = new Contact(req.body);
     await contact.save();
