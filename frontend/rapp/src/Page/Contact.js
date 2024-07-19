@@ -17,7 +17,7 @@ const Contact = () => {
         const data = { name, email, message };
 
         try {
-            const response = await fetch(`${API_URL}/contact`, { // Ensure this endpoint is correct
+            const response = await fetch(`${API_URL}/api/contact`, { // Ensure this endpoint is correct
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),

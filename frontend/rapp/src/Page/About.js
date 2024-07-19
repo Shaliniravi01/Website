@@ -53,11 +53,11 @@ const About = () => {
 
             {/* Grid Section with Images */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '60px', marginTop: '70px' }}>
-                <marquee>
+                
                 <div style={{ width: '280px', height: '280px', boxShadow: '9px 20px 20px blue', borderRadius: '10px', margin: 'auto', marginBottom: '60px' }}>
                     <img src="5.jpg" alt="Image 1" style={{ width: '100%', height: '100%', borderRadius: '10px' }} />
                 </div>
-                </marquee>
+               
                 <div style={{ width: '280px', height: '280px', boxShadow: '9px 20px 20px blue', borderRadius: '10px', margin: 'auto', marginBottom: '60px' }}>
                     <img src="6.jpg" alt="Image 2" style={{ width: '100%', height: '100%', borderRadius: '10px' }} />
                 </div>
