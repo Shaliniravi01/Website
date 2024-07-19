@@ -4,16 +4,20 @@ const Contact = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const API_URL = 'https://portfolio-website-u430.onrender.com';
 
     const addDetails = async (event) => {
         event.preventDefault();
+        setLoading(true);
+        setError('');
 
         const data = { name, email, message };
 
         try {
-            const response = await fetch(`${API_URL}/contact`, { // Add /contact if this is the correct endpoint
+            const response = await fetch(`${API_URL}/contact`, { // Ensure this endpoint is correct
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
@@ -21,7 +25,7 @@ const Contact = () => {
 
             if (!response.ok) {
                 const errorData = await response.json();
-                throw new Error(`Network response was not ok. Status: ${response.status}, Message: ${errorData.message}`);
+                throw new Error(`Status: ${response.status}, Message: ${errorData.message}`);
             }
 
             const responseData = await response.json();
@@ -32,7 +36,9 @@ const Contact = () => {
             setMessage('');
         } catch (error) {
             console.error('FAILED...', error);
-            alert('Failed to send message. Please try again later.');
+            setError('Failed to send message. Please try again later.');
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -48,6 +54,7 @@ const Contact = () => {
                     placeholder="Name"
                     value={name}
                     required
+                    aria-label="Name"
                     style={{
                         marginBottom: '20px',
                         padding: '10px',
@@ -65,6 +72,7 @@ const Contact = () => {
                     placeholder="Email"
                     value={email}
                     required
+                    aria-label="Email"
                     style={{
                         marginBottom: '15px',
                         padding: '10px',
@@ -83,6 +91,7 @@ const Contact = () => {
                     placeholder="Write Something"
                     value={message}
                     required
+                    aria-label="Message"
                     style={{
                         marginBottom: '15px',
                         padding: '10px',
@@ -96,20 +105,22 @@ const Contact = () => {
                 />
                 <button
                     type="submit"
+                    disabled={loading}
                     style={{
-                        background: 'blue',
+                        background: loading ? 'grey' : 'blue',
                         borderColor: 'blue',
                         borderRadius: '8px',
                         padding: '10px 45px',
                         marginTop: '20px',
                         color: 'white',
-                        cursor: 'pointer',
-                        marginBottom:'50px'
+                        cursor: loading ? 'not-allowed' : 'pointer',
+                        marginBottom: '85px'
                     }}
                 >
-                    Send
+                    {loading ? 'Sending...' : 'Send'}
                 </button>
             </form>
+            {error && <p style={{ color: 'red' }}>{error}</p>}
         </div>
     );
 };

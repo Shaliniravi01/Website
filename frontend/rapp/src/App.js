@@ -50,7 +50,7 @@ function App() {
       <br /><br />
 
       <div className="Button-style1" style={{ textAlign: 'center' }}>
-        <a href="https://drive.google.com/file/d/1tLK8VYNRCLvpF9RvCSzpoRrFbLtmyH_c/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <a href="https://drive.google.com/file/d/1KZR8uXk8RaLkH2D5UcLLjII2nc9hPbRG/view?usp=sharing" target="_blank" rel="noopener noreferrer">
           <button style={{
             padding: '10px 30px',
             fontSize: '20px',
@@ -73,7 +73,7 @@ function App() {
           fontSize: '35px',
           transition: 'color 0.3s ease',
           position:'absolute',
-          marginLeft:'460px'
+          marginLeft:'470px'
       
         }}>
           
@@ -83,7 +83,7 @@ function App() {
           color: '495E57',
           fontSize: '35px',
           transition: 'color 0.3s ease',
-          marginLeft:'540px',
+          marginLeft:'550px',
           position:'absolute',
         
         }}>
