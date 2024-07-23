@@ -73,7 +73,7 @@ function App() {
           fontSize: '35px',
           transition: 'color 0.3s ease',
           position:'absolute',
-          marginLeft:'470px'
+          marginLeft:'410px'
       
         }}>
           
@@ -83,7 +83,7 @@ function App() {
           color: '495E57',
           fontSize: '35px',
           transition: 'color 0.3s ease',
-          marginLeft:'550px',
+          marginLeft:'480px',
           position:'absolute',
         
         }}>
